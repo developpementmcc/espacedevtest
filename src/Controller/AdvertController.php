@@ -24,5 +24,14 @@ class  AdvertController
         
     }
     
+    public function bye(Environment $twig)
+    {
+        //$content = $twig->render('Advert/bye.html.twig', ['name' => 'winzou']);
+        //$content = "<html><body>Notre propre Hello World !<body></html>";
+        $content = $twig->render('Advert/bye.html.twig', ['name' => 'winzou']);
+        
+        return new Response($content);
+        
+    }
     
 }

@@ -8,3 +8,6 @@
 hello_the_world:
     path: /hello-word
     controller: App\Controller\AdvertController::index
+byebye_world:
+    path: /byebye-word
+    controller: App\Controller\AdvertController::bye
