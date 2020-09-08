@@ -9,12 +9,12 @@
 byebye_world:
     path: /byebye-word
     controller: App\Controller\AdvertController::bye
-oc_advert_index:
-    path: /advert
-    controller: App\Controller\AdvertController::index
-oc_advert_view:
-    path:   /advert/view/{id}
-    controller: App\Controller\AdvertController::view
+#oc_advert_index:
+ #   path: /advert
+  #  controller: App\Controller\AdvertController::index
+#oc_advert_view:
+ #   path:   /advert/view/{id}
+ #   controller: App\Controller\AdvertController::view
 oc_advert_add:
     path:    /advert/add
     controller: App\Controller\AdvertController::add
