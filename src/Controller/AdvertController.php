@@ -11,12 +11,14 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 
 /**
  * @Route("/advert")
  */
-class  AdvertController
+class  AdvertController extends AbstractController
 {
     /**
      * @Route("/",name="oc_advert_index")
@@ -46,11 +48,19 @@ class  AdvertController
     /**
      * @Route("/view/{id}", name="oc_advert_view")
      */
-    public function view($id)
+    public function view($id,Request $request)
     {
       // $id vaut 5 si l'URL appelée est /advert/view/5
-
-      return new Response("Affichage de l'annonce d'id : ".$id);
+        
+       $tag = $request->query->get('tag');
+        
+       return $this->render('Advert/view.html.twig',['id'=>$id,'tag'=>$tag]);
+        /*$response = new Response();
+        $response->setContent("Ceci est une page d'erreur 404");
+        
+        $response->setStatusCode(Response::HTTP_NOT_FOUND);
+        
+        return $response;*/
       
     }
     
@@ -65,6 +75,8 @@ class  AdvertController
     */
     public function viewSlug($slug, $year, $_format)
     {
+        
+        
         return new Response(
           "On pourrait afficher l'annonce correspondant au
           slug '".$slug."', créée en ".$year." et au format ".$_format."."
